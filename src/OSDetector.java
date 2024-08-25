@@ -1,4 +1,5 @@
 public class OSDetector {
+    
     public String getOSName() {
         String os = System.getProperty("os.name").toLowerCase();
         

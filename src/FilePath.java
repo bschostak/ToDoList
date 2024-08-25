@@ -1,5 +1,10 @@
-public class FilePath {
-    public String setFilePath(String osName) {
+public class FilePath extends FileHandling {
+    //LEARN: Why do I need this constructor.
+    FilePath(String osName) {
+        super.osName = osName;
+    }
+
+    public String setFilePath() {
         String userName = System.getProperty("user.name");
         switch (osName) {
             case "Windows":

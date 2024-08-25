@@ -1,18 +1,31 @@
 public class FileHandling {
-    public void writeToFile(String textToWrite){
+
+    public String osName = "";
+    public String filePath = "";
+    public boolean isFileExist = false;
+
+    public void handleFile(String textToWrite){
         OSDetector oSDetector = new OSDetector();
-        String osName = oSDetector.getOSName();
+        osName = oSDetector.getOSName();
 
-        FilePath pathSeter = new FilePath();
-        String fileName = pathSeter.setFilePath(osName);
+        FilePath pathSetter = new FilePath(osName);
+        filePath = pathSetter.setFilePath();
+        if (filePath == null) {
+            System.out.println("Error: Unsupported operating system.");
+            return;
+        }
 
-        FileExistanceCheck fileChecker = new FileExistanceCheck();
-        boolean isFileExist = fileChecker.checkFileExistance(fileName);
+        FileExistanceCheck fileChecker = new FileExistanceCheck(filePath);
+        isFileExist = fileChecker.checkFileExistance();
 
-        FileEditor fileEditor = new FileEditor();
-        fileEditor.editFile(textToWrite, fileName);
+
+        FileEditor fileEditor = new FileEditor(filePath);
+        fileEditor.editFile(textToWrite);
         if (!isFileExist) {
-            System.out.println("\nSuccessfully wrote to file: " + fileName);
+            System.out.println("\nSuccessfully wrote to file: " + filePath);
+        }
+        else {
+            System.out.println("\nSuccessfully appended to file: " + filePath);
         }
     }
 }

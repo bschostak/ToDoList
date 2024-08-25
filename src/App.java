@@ -4,6 +4,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int choice;
+        String userInput;
 
         FileHandling fileHandler = new FileHandling();
 
@@ -18,20 +19,26 @@ public class App {
             choice = scanner.nextInt();
             scanner.nextLine();
 
+            //TODO: Check if userinput is integer
+            //TODO: Check if userinput is tab or space
+
             switch (choice) {
                 case 1:
                     System.out.println("\nYou selected Option 1.");
+                    System.out.println("--------------------------------");
+                    System.out.println("List of items:");
                     break;
                 case 2:
                     System.out.println("\nYou selected Option 2.");
                     System.out.print("\nValue: ");
-                    String userInput = scanner.nextLine();
-                    fileHandler.writeToFile(userInput);
-                    System.out.println("\nAdded '" + userInput + "'.\n");
+                    userInput = scanner.nextLine();
+                    fileHandler.handleFile(userInput);
+                    System.out.println("\nAdded '" + userInput + "'.\n"); //TODO: Take this line to FileEditor class
                     System.out.println("--------------------------------");
                     break;
                 case 3:
                     System.out.println("\nYou selected Option 3.");
+                    System.out.print("\nValue: ");
                     break;
                 case 4:
                     System.out.println("\nExiting the program. Goodbye!");
@@ -47,3 +54,4 @@ public class App {
     }
 }
 //TODO: Make OS detector seprable variable, that is always checked by selecting option from a menu.
+//TODO: Implement EndScreen and LineReader.

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Endscreen {
     public void chooseNextOption() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); //FIXME: Data leaks!
         int choice;
 
         do {

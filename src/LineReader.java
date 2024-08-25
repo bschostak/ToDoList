@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class LineReader {
+    
     public void convertLinesToStings() {
         try {
             List<String> lines = Files.lines(Paths.get("path/to/your/file.txt")).collect(Collectors.toList());
@@ -15,5 +16,5 @@ public class LineReader {
         }
     }
 }
-//TODO: Learn Java lists.
+//LEARN Java lists.
 //* Not connected to other classes, safe to remove.
