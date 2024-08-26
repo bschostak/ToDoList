@@ -55,3 +55,5 @@ public class App {
 }
 //TODO: Make OS detector seprable variable, that is always checked by selecting option from a menu.
 //TODO: Implement EndScreen and LineReader.
+
+//TODO: Update the Graph.

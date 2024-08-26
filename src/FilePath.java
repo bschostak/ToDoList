@@ -1,12 +1,12 @@
 public class FilePath extends FileHandling {
+    
     //LEARN: Why do I need this constructor.
-    FilePath(String osName) {
-        super.osName = osName;
+    public FilePath() {
     }
 
     public String setFilePath() {
         String userName = System.getProperty("user.name");
-        switch (osName) {
+        switch (getOsName()) {
             case "Windows":
                 return "C:/Users/" + userName + "/Documents/ToDo.txt";
             case "macOS":

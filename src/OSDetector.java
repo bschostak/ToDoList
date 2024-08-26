@@ -1,8 +1,8 @@
 public class OSDetector {
-    
+
     public String getOSName() {
         String os = System.getProperty("os.name").toLowerCase();
-        
+
         if (os.contains("win")) {
             return "Windows";
         } else if (os.contains("mac")) {
@@ -11,7 +11,7 @@ public class OSDetector {
             return "Unix/Linux";
         } else {
             System.out.println("Operating System: " + os);
-            return os;
+            return null;
         }
     }
 }
