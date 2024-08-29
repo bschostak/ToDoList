@@ -1,6 +1,6 @@
 public class OSDetector {
 
-    public String getOSName() {
+    public String getNameOfOS() {
         String os = System.getProperty("os.name").toLowerCase();
 
         if (os.contains("win")) {

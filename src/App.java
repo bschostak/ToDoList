@@ -6,7 +6,7 @@ public class App {
         int choice;
         String userInput;
 
-        FileHandling fileHandler = new FileHandling();
+        FileHandler fileHandler = new FileHandler();
 
         do {
             System.out.println("Menu:");
@@ -17,7 +17,7 @@ public class App {
             System.out.print("Please enter your choice (1-4): ");
 
             choice = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Consume the newline character
 
             //TODO: Check if userinput is integer
             //TODO: Check if userinput is tab or space
@@ -27,13 +27,15 @@ public class App {
                     System.out.println("\nYou selected Option 1.");
                     System.out.println("--------------------------------");
                     System.out.println("List of items:");
+                    FileScanner filePrinter = new FileScanner();
+                    filePrinter.readFileContent();
                     break;
                 case 2:
                     System.out.println("\nYou selected Option 2.");
                     System.out.print("\nValue: ");
                     userInput = scanner.nextLine();
                     fileHandler.handleFile(userInput);
-                    System.out.println("\nAdded '" + userInput + "'.\n"); //TODO: Take this line to FileEditor class
+                    System.out.println("\nAdded '" + userInput + "'.\n"); //TODO: Take this line to FileWriting class
                     System.out.println("--------------------------------");
                     break;
                 case 3:

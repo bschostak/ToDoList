@@ -2,13 +2,13 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileEditor extends FileHandling{
+public class FileSaver extends FileHandler{
     //LEARN: Why do I need this constructor.
-    public FileEditor(String filePath) {
+    public FileSaver(String filePath) {
         super(filePath);
     }
     
-    public void editFile(String textToWrite){
+    public void saveToFile(String textToWrite){
         // Bool set to true allows you to add text to the end of the file without overwriting its existing contents.
         try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(getFilePath(), true))) {
             fileWriter.write(textToWrite);

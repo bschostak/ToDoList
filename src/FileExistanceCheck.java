@@ -1,6 +1,6 @@
 import java.io.File;
 
-public class FileExistanceCheck extends FileHandling {
+public class FileExistanceCheck extends FileHandler {
 
     FileExistanceCheck(String filePath) {
         super(filePath);
