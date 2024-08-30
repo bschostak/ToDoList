@@ -2,49 +2,34 @@ public class FileHandler {
 
     private String osName;
     private String filePath;
-    private boolean isFileExist;
 
     public FileHandler() {
-        this.osName = "";
-        this.filePath = "";
-        this.isFileExist = false;
+        checkFile();
     }
-    
+
     public FileHandler(String filePath) {
         this.filePath = filePath;
     }
 
-    public void handleFile(String textToWrite){
+    //TODO: Make a abstract class for everything in this method
+    private void checkFile() {
         OSDetector oSDetector = new OSDetector();
         osName = oSDetector.getNameOfOS();
 
         FilePath pathSetter = new FilePath();
-        //System.out.println("OS Name in pathSetter: '" + pathSetter.getOsName()+"'");
-        pathSetter.setOsName(osName); //LEARN: What is this?
-        //System.out.println("OS Name in pathSetter: '" + pathSetter.getOsName()+"'");
-
-        filePath = pathSetter.setPathToFile();
+        filePath = pathSetter.setPathToFile(osName);
         if (filePath == null) {
             System.out.println("Error: Unsupported operating system.");
-            return;
-        }
-
-        FileExistanceCheck fileChecker = new FileExistanceCheck(filePath);
-        isFileExist = fileChecker.checkFileExistance();
-
-        FileSaver fileEditor = new FileSaver(filePath);
-        fileEditor.saveToFile(textToWrite);
-        if (!isFileExist) {
-            System.out.println("\nSuccessfully wrote to file: " + filePath);
-        }
-        else {
-            System.out.println("\nSuccessfully appended to file: " + filePath);
+            System.exit(1);
         }
     }
 
     public String getFilePath() {
-        System.out.println(filePath);
         return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 
     public String getOsName() {
@@ -55,9 +40,4 @@ public class FileHandler {
     public void setOsName(String osName) {
         this.osName = osName;
     }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-
 }

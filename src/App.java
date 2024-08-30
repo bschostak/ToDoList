@@ -27,15 +27,19 @@ public class App {
                     System.out.println("\nYou selected Option 1.");
                     System.out.println("--------------------------------");
                     System.out.println("List of items:");
-                    FileScanner filePrinter = new FileScanner();
-                    filePrinter.readFileContent();
+                    FileScanner fileScanner = new FileScanner();
+                    fileScanner.readFileContent(fileHandler.getFilePath());
                     break;
                 case 2:
                     System.out.println("\nYou selected Option 2.");
                     System.out.print("\nValue: ");
                     userInput = scanner.nextLine();
-                    fileHandler.handleFile(userInput);
-                    System.out.println("\nAdded '" + userInput + "'.\n"); //TODO: Take this line to FileWriting class
+                    
+                    FileExistanceCheck fileChecker = new FileExistanceCheck();
+                    fileChecker.checkFileExistance(fileHandler.getFilePath());
+
+                    FileSaver fileSaver = new FileSaver(fileHandler.getFilePath());
+                    fileSaver.saveToFile(userInput);
                     System.out.println("--------------------------------");
                     break;
                 case 3:
@@ -55,7 +59,6 @@ public class App {
         scanner.close();
     }
 }
-//TODO: Make OS detector seprable variable, that is always checked by selecting option from a menu.
-//TODO: Implement EndScreen and LineReader.
 
 //TODO: Update the Graph.
+//TODO: Add colors to menu.

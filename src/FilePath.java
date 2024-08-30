@@ -1,9 +1,9 @@
-public class FilePath extends FileHandler {
+public class FilePath{
     
 
-    public String setPathToFile() {
+    public String setPathToFile(String osName) {
         String userName = System.getProperty("user.name");
-        switch (getOsName()) {
+        switch (osName) {
             case "Windows":
                 return "C:/Users/" + userName + "/Documents/ToDo.txt";
             case "macOS":

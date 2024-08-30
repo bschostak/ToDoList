@@ -3,14 +3,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileSaver extends FileHandler{
-    //LEARN: Why do I need this constructor.
+    //TODO: Check if I really need this
+    private String filePath;
     public FileSaver(String filePath) {
         super(filePath);
+        this.filePath = filePath;
     }
-    
+
     public void saveToFile(String textToWrite){
         // Bool set to true allows you to add text to the end of the file without overwriting its existing contents.
-        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(getFilePath(), true))) {
+        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(filePath, true))) {
             fileWriter.write(textToWrite);
             fileWriter.newLine();
             fileWriter.close();
@@ -19,4 +21,3 @@ public class FileSaver extends FileHandler{
         }
     }
 }
-// TODO: Add constructors.

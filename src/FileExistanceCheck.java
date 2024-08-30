@@ -1,18 +1,14 @@
 import java.io.File;
 
-public class FileExistanceCheck extends FileHandler {
-
-    FileExistanceCheck(String filePath) {
-        super(filePath);
-    }
+public class FileExistanceCheck {
     
-    public Boolean checkFileExistance() {
-        File file = new File(getFilePath());
+    public void checkFileExistance(String filePath) {
+        File file = new File(filePath);
 
         if (file.exists()) {
-            return true;
+            System.out.println("\nAppended to file: " + filePath);
         } else {
-            return false;
+            System.out.println("\nWritten to file: " + filePath);
         }
     }
 }

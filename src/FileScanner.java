@@ -4,12 +4,7 @@ import java.io.IOException;
 
 public class FileScanner {
 
-    public FileScanner() {
-
-    }
-
-    public void readFileContent() {
-        String filePath = "/home/tssdock/Documents/ToDo.txt"; // Replace with your file path //TODO: pull file path from FileHandler
+    public void readFileContent(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             int lineNumber = 1; // Start line numbering from 1
