@@ -1,5 +1,4 @@
 public class FilePath{
-    
 
     public String setPathToFile(String osName) {
         String userName = System.getProperty("user.name");
